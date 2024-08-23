@@ -24,12 +24,12 @@ export class EnderecoService {
     return this.http.delete<string>(this.API+"/delete/"+id, {responseType: 'text' as 'json'});
   }
 
-  save(carro: Endereco): Observable<string>{
-    return this.http.post<string>(this.API+"/save", carro, {responseType: 'text' as 'json'});
+  save(endereco: Endereco): Observable<string>{
+    return this.http.post<string>(this.API+"/save", endereco, {responseType: 'text' as 'json'});
   }
 
-  update(carro: Endereco, id: number): Observable<string>{
-    return this.http.put<string>(this.API+"/update/"+id, carro, {responseType: 'text' as 'json'});
+  update(endereco: Endereco, id: number): Observable<string>{
+    return this.http.put<string>(this.API+"/update/"+id, endereco, {responseType: 'text' as 'json'});
   }
 
   findById(id: number): Observable<Endereco>{
