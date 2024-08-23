@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+  
+            <h3>Listagem de endereços</h3>
+            <div class="direita">
+              <!-- Botão "Adicionar" -->
+              <a href="/admin/endereco/new">
+                <button type="button">
+                  Adicionar
+                </button>
+              </a>
+            </div>
+            <br>
+            <table border="1" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Rua</th>
+                  <th>Bairro</th>
+                  <th>Número</th>
+                  <th>Complemento</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (enderecos of lista; track $index) {
+                <tr>
+                  <td>{{ enderecos.rua }}</td>
+                  <td>{{ enderecos.bairro }}</td>
+                  <td>{{ enderecos.numero }}</td>
+                  <td>{{ enderecos.complemento }}</td>
+                  <td class="direita">
+                    <!-- Botão "Editar" com link para o HTML de edição -->
+                    <a [href]="'/admin/endereco/edit/' + enderecos.id">
+                      <button type="button">
+                        Editar
+                      </button>
+                    </a>
+                    <button type="button" (click)="deleteById(enderecos)"> <!---estou passsando um endereco todo aqui por ele
+                         relcama qundo eu apsso so id e para resolver isso da muito trabalho espero que de certo-->
+                      Deletar
+                    </button>
+                  </td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

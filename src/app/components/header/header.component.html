@@ -1,0 +1,28 @@
+<!-- Navbar -->
+<nav class="navbar">
+    <!-- Container -->
+    <div class="navbar-container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="/">Endereços TADS</a>
+  
+      <!-- Navbar links -->
+      <div id="navbarLinks" class="navbar-links">
+        <!-- Verificações de permissões para exibir as opções -->
+        <!-- @if(loginService.hasPermission("ADMIN")) { -->
+        <!-- } -->
+  
+        <!-- @if(loginService.hasPermission("USER")) { -->
+        <a href="endereco" class="nav-link">Endereços</a>
+        <!-- } -->
+  
+        <!-- @if(loginService.hasPermission("USER") || loginService.hasPermission("ADMIN")) { -->
+        <a href="endereco/new" class="nav-link">Cadastro Endereço</a>
+        <!-- } -->
+  
+        <a href="login" class="nav-link">Sair</a>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+  
+  
