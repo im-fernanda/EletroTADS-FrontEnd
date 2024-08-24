@@ -4,11 +4,12 @@ import { EnderecosListComponent } from './components/enderecos-list/enderecos-li
 import { CreateEnderecosComponent } from './components/create-enderecos/create-enderecos.component';
 import { FooterComponent } from "./layout/footer/footer.component";
 import { HeadComponent } from "./layout/head/head.component";
+import { AddressComponent } from "./components/address/address.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, EnderecosListComponent, CreateEnderecosComponent, FooterComponent, HeadComponent],
+  imports: [RouterOutlet, EnderecosListComponent, CreateEnderecosComponent, HeadComponent, FooterComponent, AddressComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
