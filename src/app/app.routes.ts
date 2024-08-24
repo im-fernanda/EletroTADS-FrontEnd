@@ -13,7 +13,7 @@ export const routes: Routes = [
           },
         ],
       },
-      {path: 'criar-enderecos',loadComponent: () =>import('./components/create-enderecos/create-enderecos.component').then(
+      { path: 'criar-enderecos',loadComponent: () =>import('./components/create-enderecos/create-enderecos.component').then(
         (c) => c.CreateEnderecosComponent,
           ),
       },
