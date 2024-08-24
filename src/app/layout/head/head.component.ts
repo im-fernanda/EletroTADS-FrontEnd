@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-head',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './head.component.html',
   styleUrl: './head.component.scss'
 })
 export class HeadComponent {
   
-  addAddress() {
-    // Lógica para adicionar um novo endereço
-    console.log('Adicionar Endereço acionado');
-  }
+ 
 }

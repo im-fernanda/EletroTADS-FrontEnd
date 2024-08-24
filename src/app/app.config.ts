@@ -1,8 +1,8 @@
+import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import {
-  ApplicationConfig,
   provideClientHydration,
   withHttpTransferCacheOptions,
 } from '@angular/platform-browser';
@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(
       withHttpTransferCacheOptions({
         filter(req) {
-          return !req.url.includes('/api/event?page=0&size=10');
+          return !req.url.includes('/api/enderecos?page=0&size=10');
         },
       }),
     ),

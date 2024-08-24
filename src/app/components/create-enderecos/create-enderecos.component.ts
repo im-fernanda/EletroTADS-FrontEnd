@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AddressService } from '../../service/service-enderecos.service';
 import { Enderecos } from '../../model/enderecos'
+import { RouterModule } from '@angular/router';
 
 export interface CreateAddressFormControl { // molde
   rua: FormControl<string | null>;
@@ -16,7 +17,7 @@ export interface CreateAddressFormControl { // molde
 @Component({
   selector: 'app-create-enderecos',
   standalone: true,
-  imports: [FooterComponent, ReactiveFormsModule],
+  imports: [FooterComponent, ReactiveFormsModule, RouterModule],
   templateUrl: './create-enderecos.component.html',
   styleUrl: './create-enderecos.component.scss'
 })
