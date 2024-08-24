@@ -6,7 +6,7 @@ import { CreateEnderecosComponent } from './components/create-enderecos/create-e
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, EnderecosListComponent,CreateEnderecosComponent],
+  imports: [RouterOutlet, EnderecosListComponent,CreateEnderecosComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
