@@ -1,2 +1,4 @@
-export type Enderecos {
+export type Enderecos = {
+    
+
 }
