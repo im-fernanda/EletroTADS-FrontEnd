@@ -1,20 +1,28 @@
 import { Routes } from '@angular/router';
 import { appConfig } from './app.config';
-import { CreateEnderecosComponent } from './components/create-enderecos/create-enderecos.component';
 
 export const routes: Routes = [
-    {path: '',loadComponent: () =>import('./app.component').then((c) => c.AppComponent),},
-    {path: 'enderecos',children: [
-          {
-            path: ':id',loadComponent: () =>import('./components/enderecos-list/enderecos-list.component')
-            .then(
-                (c) => c.EnderecosListComponent,
-              ),
-          },
-        ],
-      },
-      { path: 'criar-enderecos',loadComponent: () =>import('./components/create-enderecos/create-enderecos.component').then(
-        (c) => c.CreateEnderecosComponent,
-          ),
-      },
+  // Rota raiz redirecionando para a lista de endereços
+  { path: '', redirectTo: 'enderecos', pathMatch: 'full' },
+
+  // Rota para a lista de endereços
+  { 
+    path: 'enderecos', 
+    loadComponent: () => import('./components/enderecos-list/enderecos-list.component')
+      .then((c) => c.EnderecosListComponent)
+  },
+
+  // Rota para um endereço específico
+  { 
+    path: 'enderecos/:id', 
+    loadComponent: () => import('./components/enderecos-list/enderecos-list.component')
+      .then((c) => c.EnderecosListComponent)
+  },
+
+  // Rota para criar um novo endereço
+  { 
+    path: 'criar-enderecos', 
+    loadComponent: () => import('./components/create-enderecos/create-enderecos.component')
+      .then((c) => c.CreateEnderecosComponent)
+  },
 ];
