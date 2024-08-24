@@ -2,35 +2,39 @@ import { Component, inject } from '@angular/core';
 import { FooterComponent } from '../../layout/footer/footer.component';
 import { HeadComponent } from '../../layout/head/head.component';
 import { AddressService } from '../../service/service-enderecos.service';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Enderecos } from '../../model/enderecos';
-import { AddressComponent } from '../address/address.component';
+import { Address, AddressComponent } from '../address/address.component';
 import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-enderecos-list',
   standalone: true,
-  imports: [FooterComponent, HeadComponent, AddressComponent, RouterModule],
+  imports: [FooterComponent, HeadComponent, RouterModule],
   templateUrl: './enderecos-list.component.html',
-  styleUrl: './enderecos-list.component.scss'
 })
 
 export class EnderecosListComponent {
-  
-  addressList$!: Observable<Enderecos[]>;
+  //lista: AddressComponent[] = [];
 
   private addressService = inject(AddressService);
 
+  address$: Observable<Enderecos[]> = new Observable();
+  enderecosList: Enderecos[] = [];
 
-  ngOnInit() {
-    this.loadAddresses();
+  listAll() {
+    this.address$ = this.addressService.getAddress(0, 20).pipe(
+      tap(enderecos => this.enderecosList = enderecos)
+    );
+  } 
+
+  edit(endereco: Enderecos) {
+    // Lógica para editar
   }
 
-  loadAddresses() {
-    this.addressList$ = this.addressService.getAddresses();
+  deleteById(endereco: Enderecos) {
+    // Lógica para deletar
   }
-
- 
-
 }
+

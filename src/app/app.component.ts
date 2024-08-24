@@ -9,7 +9,7 @@ import { AddressComponent } from "./components/address/address.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, EnderecosListComponent, CreateEnderecosComponent, HeadComponent, FooterComponent, AddressComponent],
+  imports: [RouterOutlet, EnderecosListComponent, CreateEnderecosComponent, HeadComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
