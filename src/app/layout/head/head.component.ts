@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './head.component.scss'
 })
 export class HeadComponent {
-
+  
+  addAddress() {
+    // Lógica para adicionar um novo endereço
+    console.log('Adicionar Endereço acionado');
+  }
 }
