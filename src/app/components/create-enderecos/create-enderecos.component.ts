@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { FooterComponent } from '../../layout/footer/footer.component';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -26,7 +27,7 @@ export class CreateEnderecosComponent implements OnInit {
   createAddressForm: FormGroup;
   router: any;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.createAddressForm = this.fb.group({
       rua: ['', Validators.required],
       numero: ['', Validators.required],
@@ -42,13 +43,16 @@ export class CreateEnderecosComponent implements OnInit {
    }
 
   createAddress() {
-    if (this.createAddressForm.valid) {
-      const addressData = this.createAddressForm.value;
-      console.log('Address Data:', addressData);
-  
-    } else {
-      console.log('Erro ao cadastrar');
-    }
+    const addressData = this.createAddressForm.value;
+
+    this.http.post('http://localhost:8080/usuarios/1/enderecos/', addressData).subscribe(
+      (response: any) => {
+        console.log('Connection successful:', response);
+      },
+      (error: any) => {
+        console.error('Connection failed:', error);
+      }
+    );
 
   } 
 }
