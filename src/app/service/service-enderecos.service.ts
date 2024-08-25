@@ -9,17 +9,18 @@ import { Address, AddressComponent } from '../components/address/address.compone
 })
 export class AddressService {
 
-  private apiUrl = 'http://localhost:8080/enderecos';
+  private apiUrl = 'http://localhost:8080/enderecos/';
+  private apiUrl2 = 'http://localhost:8080/usuarios/1/enderecos/';
 
   constructor(private http: HttpClient) {}
 
-  createAddress(address: any): Observable<any> {
+  createAddress(address: FormData): Observable<any> {
     return this.http.post(this.apiUrl, address);
   }
 
   getAddress(page: number = 0, size: number = 10): Observable<Address[]> {
     return this.http
-      .get<Address[]>(`${this.apiUrl}/api/event?page=${page}&size=${size}`)
+      .get<Address[]>(`${this.apiUrl}`)
       .pipe(
         catchError(() => {
           return of([]);
@@ -27,24 +28,22 @@ export class AddressService {
       );
   }
 
-  // listAll(): Observable<Address[]>{
-  //   return this.http.get<Address[]>(this.apiUrl);
-  // }
 
   delete(id: number): Observable<string>{
-    return this.http.delete<string>(this.apiUrl+"/delete/"+id, {responseType: 'text' as 'json'});
+    return this.http.delete<string>(this.apiUrl+id, {responseType: 'text' as 'json'});
   }
 
-  save(address: Address): Observable<string>{
-    return this.http.post<string>(this.apiUrl+"/save", address, {responseType: 'text' as 'json'});
-  }
+  // save(address: Address): Observable<string>{
+  //   return this.http.post<string>(this.apiUrl2, address, {responseType: 'text' as 'json'});
+  // }
+
 
   update(address: Address, id: number): Observable<string>{
-    return this.http.put<string>(this.apiUrl+"/update/"+id, address, {responseType: 'text' as 'json'});
+    return this.http.put<string>(this.apiUrl+id, address, {responseType: 'text' as 'json'});
   }
 
   findById(id: number): Observable<Address>{
-    return this.http.get<Address>(this.apiUrl+"/findById/"+id);
+    return this.http.get<Address>(this.apiUrl+id);
   }
 
 }
