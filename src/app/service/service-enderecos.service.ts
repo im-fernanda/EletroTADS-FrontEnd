@@ -15,7 +15,7 @@ export class AddressService {
   constructor(private http: HttpClient) {}
 
   createAddress(address: FormData): Observable<any> {
-    return this.http.post(this.apiUrl, address);
+    return this.http.post(this.apiUrl2, address);
   }
 
   getAddress(page: number = 0, size: number = 10): Observable<Address[]> {
@@ -27,7 +27,6 @@ export class AddressService {
         }),
       );
   }
-
 
   delete(id: number): Observable<string>{
     return this.http.delete<string>(this.apiUrl+id, {responseType: 'text' as 'json'});

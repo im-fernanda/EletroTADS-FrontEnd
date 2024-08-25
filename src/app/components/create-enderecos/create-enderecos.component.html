@@ -39,7 +39,7 @@
       </p>
     </div>
   
-    <form [formGroup]="createAddressForm" class="mx-auto mt-16 max-w-xl sm:mt-20">
+    <form [formGroup]="createAddressForm" class="mx-auto mt-16 max-w-xl sm:mt-20" (ngSubmit)="createAddress()">
       <div class="text-center">
         <nav
           class="inline-flex mx-auto overflow-x-auto items-center p-1 space-x-1 rtl:space-x-reverse text-sm text-gray-600 bg-gray-500/5 rounded-xl dark:bg-gray-500/20"
@@ -160,7 +160,6 @@
         <button
           type="submit"
           class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full"
-          (click)="createAddress()"
         >
           Cadastrar Endereço
         </button>

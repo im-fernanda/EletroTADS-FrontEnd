@@ -22,46 +22,34 @@ export interface CreateAddressFormControl { // molde
   styleUrl: './create-enderecos.component.scss'
 })
 
-export class CreateEnderecosComponent {
+export class CreateEnderecosComponent implements OnInit {
   createAddressForm: FormGroup;
   router: any;
 
-  constructor(private fb: FormBuilder, private addressService: AddressService) {
+  constructor(private fb: FormBuilder) {
     this.createAddressForm = this.fb.group({
       rua: ['', Validators.required],
       numero: ['', Validators.required],
       bairro: ['', Validators.required],
       complemento: [''],
-      uf: ['', [Validators.required, Validators.maxLength(2), Validators.pattern('^[A-Z]{2}$')]], // Validação para UF
+      uf: ['', Validators.required],
       cidade: ['', Validators.required],
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    
+   }
 
   createAddress() {
-    if (!this.createAddressForm?.valid) {
-      return;
-    }
-    // Coletar os dados do formulário
-    const data = new FormData(); // Se você estiver usando FormData para uploads de arquivos
-    data.append('rua', this.createAddressForm.get('rua')?.value);
-    data.append('numero', this.createAddressForm.get('numero')?.value);
-    data.append('bairro', this.createAddressForm.get('bairro')?.value);
-    data.append('complemento', this.createAddressForm.get('complemento')?.value);
-    data.append('cidade', this.createAddressForm.get('cidade')?.value);
-    data.append('uf', this.createAddressForm.get('uf')?.value);
-    
-    this.addressService.createAddress(data).subscribe({
-      next: () => {
-     
-        this.router.navigate(['/']);
-      },
-      error: (error) => {
+    if (this.createAddressForm.valid) {
+      const addressData = this.createAddressForm.value;
+      console.log('Address Data:', addressData);
   
-        console.error('Erro ao cadastrar evento:', error);
-      },
-    });
+    } else {
+      console.log('Erro ao cadastrar');
+    }
+
   } 
 }
   
