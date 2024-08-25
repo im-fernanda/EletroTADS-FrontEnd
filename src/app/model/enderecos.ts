@@ -1,5 +1,5 @@
-export type Enderecos = {
-bairro: any;
+export interface Enderecos {
+    bairro: string;
     id: number,
     rua: string;
     numero: string;

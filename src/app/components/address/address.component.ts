@@ -1,35 +1,16 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { Address } from '../../model/address'; // Importa a classe Address (ajuste o caminho conforme necessário)
 
 @Component({
-  selector: 'app-address',
-  standalone: true,
-  templateUrl: './address.component.html',
+  selector: 'app-address', // Nome da tag HTML usada para inserir este componente
+  standalone: true, // Indica que o componente pode ser usado independentemente
+  templateUrl: './address.component.html', // Caminho para o template HTML do componente
 })
 export class AddressComponent {
 
-  @Input() enderecosList: Address[] = []; // Lista de endereços que será exibida na tabela
+  // Propriedade de entrada (input) que recebe uma lista de endereços para exibição
+  @Input() enderecosList: Address[] = []; // Lista de endereços a ser exibida na tabela
 
-  // Métodos de edição e exclusão
-  edit(endereco: Address): void {
-    // Implementar lógica de edição
-  }
-
-  deleteById(endereco: Address): void {
-    // Implementar lógica de exclusão
-  }
-}
-
-// Definição da interface Address, que pode estar em um arquivo separado, por exemplo, address.model.ts
-export interface Address {
-  id: number;
-  rua: string;
-  numero: string;
-  bairro: string;
-  complemento: string;
-  cidade: string;
-  uf: string;
 }
 
 

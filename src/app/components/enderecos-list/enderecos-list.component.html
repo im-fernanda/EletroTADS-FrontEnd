@@ -38,7 +38,64 @@
       </thead>
       
       <tbody class="bg-white divide-y divide-gray-200">
+        <!-- Primeiro endereço estático -->
+        <tr>
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">4</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Av. Paulista</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1000</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Bela Vista</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Apto 101</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">São Paulo</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">SP</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+            <button type="button" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-1 px-2 rounded-full" mdbRipple (click)="edit(endereco)">
+              Editar
+            </button>
+            <button type="button" class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-full ml-2" mdbRipple (click)="deleteById(endereco)">
+              Deletar
+            </button>
+          </td>
+        </tr>
 
+        <!-- Segundo endereço estático -->
+        <tr>
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rua das Flores</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">123</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Centro</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Casa</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Curitiba</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">PR</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+            <button type="button" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-1 px-2 rounded-full" mdbRipple (click)="edit(endereco)">
+              Editar
+            </button>
+            <button type="button" class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-full ml-2" mdbRipple (click)="deleteById(endereco)">
+              Deletar
+            </button>
+          </td>
+        </tr>
+
+        <!-- Terceiro endereço estático -->
+        <tr>
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rua das Palmeiras</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">45</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Jardim América</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Bloco B</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rio de Janeiro</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">RJ</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+            <button type="button" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-1 px-2 rounded-full" mdbRipple (click)="edit(endereco)">
+              Editar
+            </button>
+            <button type="button" class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-full ml-2" mdbRipple (click)="deleteById(endereco)">
+              Deletar
+            </button>
+          </td>
+        </tr>
+
+        <!-- Loop para listar os endereços dinamicamente -->
         @for (endereco of enderecosList; track $index) {
           <tr>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ endereco.id }}</td>
@@ -49,10 +106,10 @@
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ endereco.cidade }}</td>
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ endereco.uf }}</td>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-              <button type="button" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full" mdbRipple (click)="edit(endereco)">
+              <button type="button" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-1 px-2 rounded-full" mdbRipple (click)="edit(endereco)">
                 Editar
               </button>
-              <button type="button" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" mdbRipple (click)="deleteById(endereco)">
+              <button type="button" class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-full" mdbRipple (click)="deleteById(endereco)">
                 Deletar
               </button>
             </td>
@@ -62,3 +119,4 @@
     </table>
   </div>
 </div>
+<app-footer></app-footer>
