@@ -4,7 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AddressService } from '../../service/service-enderecos.service';
 import { Enderecos } from '../../model/enderecos'
-import { RouterModule } from '@angular/router';
+
+import { Router } from '@angular/router';
 
 export interface CreateAddressFormControl { // molde
   rua: FormControl<string | null>;
@@ -18,16 +19,16 @@ export interface CreateAddressFormControl { // molde
 @Component({
   selector: 'app-create-enderecos',
   standalone: true,
-  imports: [FooterComponent, ReactiveFormsModule, RouterModule],
+  imports: [FooterComponent, ReactiveFormsModule],
   templateUrl: './create-enderecos.component.html',
   styleUrl: './create-enderecos.component.scss'
 })
 
 export class CreateEnderecosComponent implements OnInit {
   createAddressForm: FormGroup;
-  router: any;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.createAddressForm = this.fb.group({
       rua: ['', Validators.required],
       numero: ['', Validators.required],
@@ -48,6 +49,7 @@ export class CreateEnderecosComponent implements OnInit {
     this.http.post('http://localhost:8080/usuarios/1/enderecos/', addressData).subscribe(
       (response: any) => {
         console.log('Connection successful:', response);
+        this.router.navigate(['/enderecos']);
       },
       (error: any) => {
         console.error('Connection failed:', error);

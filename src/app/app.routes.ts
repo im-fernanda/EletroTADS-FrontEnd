@@ -21,5 +21,5 @@ export const routes: Routes = [
       (c) => c.CreateEnderecosComponent,
     ),
   },
-  { path: '**', redirectTo: 'enderecos' },
+  { path: '**', redirectTo: 'enderecos'},
 ];

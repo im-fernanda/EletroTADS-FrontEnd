@@ -36,8 +36,9 @@
           </th>
         </tr>
       </thead>
+      
       <tbody class="bg-white divide-y divide-gray-200">
-        <!-- Supondo que você tenha uma lista de endereços chamada 'enderecosList' -->
+
         @for (endereco of enderecosList; track $index) {
           <tr>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ endereco.id }}</td>
