@@ -1,17 +1,25 @@
 import { Routes } from '@angular/router';
-import { EnderecoListComponent } from './class/endereco-list/endereco-list.component';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './class/login/login.component';
-import { EnderecoDetailsComponent } from './class/endereco-details/endereco-details.component';
+import { appConfig } from './app.config';
 
 export const routes: Routes = [
-    {path: "", redirectTo:"login", pathMatch: 'full' },
-    {path: "login", component: LoginComponent},
+  {
+    path: '',
+    loadComponent: () =>
+      import('./components/enderecos-list/enderecos-list.component').then((c) => c.EnderecosListComponent),
+  },
 
-      {path: "endereco", component: EnderecoListComponent, children: [
-      {path: "enderco/new", component: EnderecoDetailsComponent },
-      {path: "endereco/edit/:id", component: EnderecoDetailsComponent },]
-      }
+  {
+    path: 'enderecos', loadComponent: () => import('./components/enderecos-list/enderecos-list.component')
+      .then(
+        (c) => c.EnderecosListComponent,
+      ),
 
+  },
 
+  {
+    path: 'criar-enderecos', loadComponent: () => import('./components/create-enderecos/create-enderecos.component').then(
+      (c) => c.CreateEnderecosComponent,
+    ),
+  },
+  { path: '**', redirectTo: 'enderecos'},
 ];

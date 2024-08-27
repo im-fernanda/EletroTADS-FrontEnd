@@ -1,0 +1,170 @@
+<div class="isolate bg-white px-6 py-10 sm:py-14 lg:px-8">
+    <div
+      class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+      aria-hidden="true"
+    >
+      <div
+        class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-[#1488ca] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
+        style="
+          clip-path: polygon(
+            74.1% 44.1%,
+            100% 61.6%,
+            97.5% 26.9%,
+            85.5% 0.1%,
+            80.7% 2%,
+            72.5% 32.5%,
+            60.2% 62.4%,
+            52.4% 68.1%,
+            47.5% 58.3%,
+            45.2% 34.5%,
+            27.5% 76.7%,
+            0.1% 64.9%,
+            17.9% 100%,
+            27.6% 76.8%,
+            76.1% 97.7%,
+            74.1% 44.1%
+          );
+        "
+      ></div>
+    </div>
+  
+    <div class="mx-auto max-w-2xl text-center mb-5">
+      <h2
+        class="text-3xl font-bold tracking-tight text-kipperdev-purple-dark sm:text-5xl"
+      >
+        Cadastrar endereço
+      </h2>
+      <p class="mt-2 text-lg leading-8 text-gray-600">
+        Para cadastrar um novo endereço, preencha as informações abaixo.
+      </p>
+    </div>
+  
+    <form [formGroup]="createAddressForm" class="mx-auto mt-16 max-w-xl sm:mt-20" (ngSubmit)="createAddress()">
+      <div class="text-center">
+        <nav
+          class="inline-flex mx-auto overflow-x-auto items-center p-1 space-x-1 rtl:space-x-reverse text-sm text-gray-600 bg-gray-500/5 rounded-xl dark:bg-gray-500/20"
+        ></nav>
+      </div>
+  
+      <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div class="sm:col-span-2">
+          <label
+            for="rua"
+            class="block text-sm font-semibold leading-6 text-kipperdev-purple-dark"
+          >
+            Rua
+          </label>
+          <div class="mt-2.5">
+            <input
+              formControlName="rua"
+              type="text"
+              name="rua"
+              id="rua"
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-kipperdev-purple-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-kipperdev-purple-primary sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+  
+        <div class="sm:col-span-1">
+          <label
+            for="numero"
+            class="block text-sm font-semibold leading-6 text-kipperdev-purple-dark"
+          >
+            Número
+          </label>
+          <div class="mt-2.5">
+            <input
+              formControlName="numero"
+              type="text"
+              name="numero"
+              id="numero"
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-kipperdev-purple-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-kipperdev-purple-primary sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+  
+        <div class="sm:col-span-1">
+          <label
+            for="bairro"
+            class="block text-sm font-semibold leading-6 text-kipperdev-purple-dark"
+          >
+            Bairro
+          </label>
+          <div class="mt-2.5">
+            <input
+              formControlName="bairro"
+              type="text"
+              name="bairro"
+              id="bairro"
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-kipperdev-purple-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-kipperdev-purple-primary sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+  
+        <div class="sm:col-span-2">
+          <label
+            for="complemento"
+            class="block text-sm font-semibold leading-6 text-kipperdev-purple-dark"
+          >
+            Complemento
+          </label>
+          <div class="mt-2.5">
+            <input
+              formControlName="complemento"
+              type="text"
+              name="complemento"
+              id="complemento"
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-kipperdev-purple-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-kipperdev-purple-primary sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+  
+        <div>
+          <label
+            for="uf"
+            class="block text-sm font-semibold leading-6 text-kipperdev-purple-dark"
+          >
+            Estado
+          </label>
+          <div class="mt-2.5">
+            <input
+              formControlName="uf"
+              type="text"
+              name="uf"
+              id="uf"
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-kipperdev-purple-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-kipperdev-purple-primary sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+  
+        <div>
+          <label
+            for="cidade"
+            class="block text-sm font-semibold leading-6 text-kipperdev-purple-dark"
+          >
+            Cidade
+          </label>
+          <div class="mt-2.5">
+            <input
+              formControlName="cidade"
+              type="text"
+              name="cidade"
+              id="cidade"
+              class="block w-full rounded-md border-0 px-3.5 py-2 text-kipperdev-purple-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-kipperdev-purple-primary sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center mt-8">
+        <button
+          type="submit"
+          class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">
+          Cadastrar Endereço
+        </button>
+      </div>
+      
+    </form>
+  </div>
+
+  <app-footer></app-footer>
