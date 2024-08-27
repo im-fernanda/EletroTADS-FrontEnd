@@ -15,20 +15,15 @@ import { errorContext } from 'rxjs/internal/util/errorContext';
   imports: [FooterComponent, HeadComponent, RouterModule],
   templateUrl: './enderecos-list.component.html', 
 })
-export class EnderecosListComponent {
+export class EnderecosListComponent implements OnInit{
 
-  
   private addressService = inject(AddressService);
-
-  
   address$: Observable<Address[]> = new Observable();
 
-  
   enderecosList: Address[] = [];
   id: number | undefined;
   endereco!: Enderecos;
 
-  
   ngOnInit() {
     this.listAll(); // Carrega a lista de endereços quando o componente é inicializado
   }
@@ -37,7 +32,7 @@ export class EnderecosListComponent {
   listAll() {
     this.address$ = this.addressService.getAddress(0, 20).pipe(
       tap((enderecos) => {
-        console.log('Dados recebidos:', enderecos); // Verifica a tipagem dos dados
+        console.log('Dados recebidos:', enderecos);
         this.enderecosList = enderecos;
       })
     );
@@ -50,10 +45,4 @@ export class EnderecosListComponent {
     });
   }
 
-  edit(endereco: Enderecos) {
-    // Lógica para editar
-  }
-
-  deleteById(endereco: Enderecos) {
-  }
 }
