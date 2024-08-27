@@ -45,4 +45,16 @@ export class EnderecosListComponent implements OnInit{
     });
   }
 
+  updateAddress(id: number, updatedAddress: Address) {
+    this.addressService.updateAddress(id, updatedAddress).subscribe(() => {
+      this.listAll(); 
+    });
+  }
+
+  deleteAddress(id: number) {
+    this.addressService.delete(id).subscribe(() => {
+      this.listAll();
+    });
+  }
+
 }
