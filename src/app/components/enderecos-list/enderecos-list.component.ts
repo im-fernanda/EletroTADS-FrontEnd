@@ -6,7 +6,7 @@ import { Observable, tap } from 'rxjs';
 import { Address } from '../../model/address';
 import { RouterModule } from '@angular/router';
 import { Enderecos } from '../../model/enderecos';
-import Swal from 'sweetalert2';
+
 import { errorContext } from 'rxjs/internal/util/errorContext';
 
 @Component({
